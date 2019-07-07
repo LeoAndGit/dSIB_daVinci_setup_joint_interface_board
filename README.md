@@ -21,8 +21,8 @@ To uplode new program, just change the switch on left side to BOOT mode and use 
 ***************************
 
 BUGs on daVinciBoard-01:
-- Change C44 into a 0ohm resister. Connect AIN16 pin to GND
-- Remove R6 R7 for the pull up voltage is too high when I enable the internal buffer
+- Change C44 into a 0ohm resister. Connect AIN16 pin to GND.
+- Remove R6 R7 for the pull up voltage is too high when I enable the internal buffer.
 
 ***************************
 
