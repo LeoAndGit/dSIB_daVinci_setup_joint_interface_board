@@ -107,6 +107,8 @@ Reply: DATA + OK\r\n
 
 Description: read the value of every channel and send them back to PC. DATA part will be DDDDDD0X\r\n. DDDDDD is the 24bit AD data(you should turn string into HEX when you receive these data) and 0X is STATE. X shows the channel number. If error happens in ADC, 0 in DATA will become other value like 4. DDDDDD0X\r\n will repeat 12 times to send all channels and the first channel is not fixed.
 
+BUG: Because reading process starts randomly, it is possible to skip first channel. This can be solved on STM or just adding a verification procedure in your program to check if you get all the channel data.
+
 Testing program
 ---------------------------
 - Click link then it will search for COM and auto connect to first one.
