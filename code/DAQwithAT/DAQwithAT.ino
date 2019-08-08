@@ -1,12 +1,15 @@
 
 /* AT daVinci control Board
-Version: 1.0
+Version: 1.10
 For: daVinciBoard-01
 Author: Leo
 Copyright 2019, github/LeoAndGit>
 */
 
 #include <AD7173.h>
+
+// Change X to the address you want
+#define BOARD_ADDRESS "X"
 
 #define LED0 PB0
 #define LED1 PB1
@@ -211,9 +214,14 @@ if (Serial.available() > 0) {
       }
 
   		else if(inputString=="AT+VERSION\r"){
-  			Serial.println("AT daVinci control Board V1.0");
+  			Serial.println("AT daVinci control Board V1.10");
   			Serial.println("OK");
   		} 
+
+      else if(inputString=="AT+ADDRESS\r"){
+        Serial.println(BOARD_ADDRESS);
+        Serial.println("OK");
+      } 
 
   		else{
   			Serial.println("Error command");

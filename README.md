@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/badge/Release-Ver1.0.0-blue.svg)](https://github.com/LeoAndGit/dSIB_daVinci_setup_joint_interface_board/releases)
+[![Release](https://img.shields.io/badge/Release-Ver1.1.0-blue.svg)](https://github.com/LeoAndGit/dSIB_daVinci_setup_joint_interface_board/releases)
 
 dSIB_daVinci_setup_joint_interface_board
 ===========================
@@ -22,7 +22,7 @@ To uplode new program, just change the switch on left side to BOOT mode and use 
 
 BUGs on daVinciBoard-01:
 - Change C44 into a 0ohm resister. Connect AIN16 pin to GND.
-- Remove R6 R7 for the pull up voltage is too high when I enable the internal buffer.
+- Remove R6 R7 for the pull up voltage is too high. I enable the internal buffer and this buffer cannot support a high voltage input.
 
 ***************************
 
@@ -45,9 +45,10 @@ You will still need this AD7173 library modified by myself: https://github.com/L
 
 ***************************
 
-V1.0 code feature:
+V1.10 code feature:
 - Support control every independent brake
 - Support 12 channels of analog reading
+- Support multiple boards working together by different addresses
 
 A red LED shows 3.3V logic power is online and a green LED tells you this MCU is working now. If you see two green LEDs, that means there are at least one brake released.
 
@@ -59,7 +60,22 @@ Reply: OK\r\n
 
 Description: for testing
 
- 
+
+
+ - Send: AT+VERSION\r\n 
+
+Reply: VERSION\r\n OK\r\n
+
+Description: get version
+
+
+ - Send: AT+ADDRESS\r\n 
+
+Reply: ADDRESS\r\n OK\r\n
+
+Description: get address
+
+
 
 - Send: AT+FREEALL\r\n 
 
