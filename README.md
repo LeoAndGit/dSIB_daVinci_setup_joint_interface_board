@@ -54,47 +54,47 @@ A red LED shows 3.3V logic power is online and a green LED tells you this MCU is
 
 How to control this board: Send AT command to it with baud of 115200. 
 
-- Send: AT\r\n 
-  Reply: OK\r\n
-  Description: for testing
+- **Send**: AT\r\n  
+  **Reply**: OK\r\n  
+  **Description**: for testing  
 
 
 
- - Send: AT+VERSION\r\n 
-  Reply: VERSION\r\n OK\r\n
-  Description: get version
+ - **Send**: AT+VERSION\r\n  
+   **Reply:** VERSION\r\n OK\r\n  
+   **Description**: get version
 
 
- - Send: AT+ADDRESS\r\n 
-  Reply: ADDRESS\r\n OK\r\n
-  Description: get address
-
-
-
-- Send: AT+FREEALL\r\n 
-  Reply: OK\r\n
-  Description: release all brakes
+ - **Send**: AT+ADDRESS\r\n  
+   **Reply**: ADDRESS\r\n OK\r\n  
+   **Description**: get address 
 
 
 
-- Send: AT+LOCKALL\r\n
-  Reply: OK\r\n
-  Description: lock all brakes
+- **Send**: AT+FREEALL\r\n  
+  **Reply**: OK\r\n  
+  **Description**: release all brakes
 
 
 
-- Send: AT+FREE=X\r\n 
-  Reply: OK\r\n
-  Description: release joint X. X should be 1, 2, 3, 4, 5, 6.
+- **Send**: AT+LOCKALL\r\n  
+  **Reply**: OK\r\n  
+  **Description**: lock all brakes
 
 
 
-- Send: AT+READALL\r\n 
-  Reply: DATA + OK\r\n
+- **Send**: AT+FREE=X\r\n  
+  **Reply**: OK\r\n  
+  **Description**: release joint X. X should be 1, 2, 3, 4, 5, 6.
 
-Description: read the value of every channel and send them back to PC. DATA part will be DDDDDD0X\r\n. DDDDDD is the 24bit AD data(you should turn string into HEX when you receive these data) and 0X is STATE. X shows the channel number. If error happens in ADC, 0 in DATA will become other value like 4. DDDDDD0X\r\n will repeat 12 times to send all channels and the first channel is not fixed.
 
-BUG: Because reading process starts randomly, it is possible to skip first channel. This can be solved on STM or just adding a verification procedure in your program to check if you get all the channel data.
+
+- **Send**: AT+READALL\r\n  
+  **Reply**: DATA + OK\r\n  
+
+**Description**: read the value of every channel and send them back to PC. DATA part will be DDDDDD0X\r\n. DDDDDD is the 24bit AD data(you should turn string into HEX when you receive these data) and 0X is STATE. X shows the channel number. If error happens in ADC, 0 in DATA will become other value like 4. DDDDDD0X\r\n will repeat 12 times to send all channels and the first channel is not fixed.
+
+**BUG**: Because reading process starts randomly, it is possible to skip first channel. This can be solved on STM or just adding a verification procedure in your program to check if you get all the channel data.
 
 Testing program
 ---------------------------
