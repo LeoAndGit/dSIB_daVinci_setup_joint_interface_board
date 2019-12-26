@@ -16,7 +16,7 @@ This board is a four layer PCB to connect da Vinci to your PC. It is easy to use
 
 Use this board is really simple. Built in CH340 USB to serial converter makes it possible to program your STM controller without any other device. AD7173 also has wonderful performance and is easy to design the circuit. It has a 2.5V internal reference so the maximum input is 2.5V.
 
-To uplode new program, just change the switch on left side to BOOT mode and use serial in Arduino IDE.
+To upload new program, just change the switch on left side to BOOT mode and use serial in Arduino IDE.
 
 ***************************
 
@@ -45,19 +45,18 @@ You will still need this AD7173 library modified by myself: https://github.com/L
 
 ***************************
 
-V1.10 code feature:
+V1.1.0 code feature:
 - Support control every independent brake
 - Support 12 channels of analog reading
 - Support multiple boards working together by different addresses
 
 A red LED shows 3.3V logic power is online and a green LED tells you this MCU is working now. If you see two green LEDs, that means there are at least one brake released.
 
-How to control this board: Send AT command to it with baud of 115200. 
+How to control this board: Send AT commands to it with baud of 115200. 
 
 - **Send**: AT\r\n  
   **Reply**: OK\r\n  
-  **Description**: for testing  
-
+  **Description**: for testing
 
 
  - **Send**: AT+VERSION\r\n  
@@ -67,8 +66,7 @@ How to control this board: Send AT command to it with baud of 115200.
 
  - **Send**: AT+ADDRESS\r\n  
    **Reply**: ADDRESS\r\n OK\r\n  
-   **Description**: get address 
-
+   **Description**: get address. This means when you connect this board to your PC, you can know which board is talking to.
 
 
 - **Send**: AT+FREEALL\r\n  
@@ -76,17 +74,14 @@ How to control this board: Send AT command to it with baud of 115200.
   **Description**: release all brakes
 
 
-
 - **Send**: AT+LOCKALL\r\n  
   **Reply**: OK\r\n  
   **Description**: lock all brakes
 
 
-
 - **Send**: AT+FREE=X\r\n  
   **Reply**: OK\r\n  
   **Description**: release joint X. X should be 1, 2, 3, 4, 5, 6.
-
 
 
 - **Send**: AT+READALL\r\n  
